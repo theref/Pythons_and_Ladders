@@ -10,3 +10,6 @@ sagetex.sty
 *.snm
 *.toc
 *.urb
+*.bbl
+*.pdf
+*.pyc
