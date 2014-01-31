@@ -1,0 +1,7 @@
+sagetex.sty
+*.aux
+*.blg
+*.fdb_latexmk
+*.log
+*.out
+*.sagetex.gz
