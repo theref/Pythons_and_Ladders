@@ -1,9 +1,10 @@
-\documentclass[14pt]{beamer}
+\documentclass{beamer}
 
 \usepackage{booktabs}
 \usepackage{graphicx}
-\usepackage{subcaption}
 \usepackage{verbatim}
+\usepackage{tikz}
+\usetikzlibrary{shapes, arrows}
 
 \setbeamertemplate{navigation symbols}{}
 
@@ -23,12 +24,9 @@
 \end{frame}
 
 \begin{frame}{The Game}
-  \begin{figure}[!htbp]
     \begin{center}
       \includegraphics[scale=2.2]{images/SALboard}
     \end{center}
-    \caption{The board that we will be studying.}
-  \end{figure}
 \end{frame}
 
 \begin{frame}{Modelling the Game}
@@ -39,6 +37,37 @@
     \item Transition Matrix
   \end{itemize}
 \end{frame}
+
+\frame{\frametitle{The Approach}
+\begin{center}
+\begin{tikzpicture}
+\node (A) at (0,0) [draw, ellipse] {$1$};
+\node (B) at (6,0) [draw, ellipse] {$2$};
+\node (C) at (3,-3) [draw, ellipse] {$3$};
+
+\pause
+\draw (A) edge[out=-10, in= -170, ->, red] (B);
+\draw (B) edge[in=10, out= 170, ->, blue] (A);
+
+\draw (C) edge[out=35, in= -125, ->, red] (B);
+\draw (B) edge[in=55, out= -145, ->, blue] (C);
+
+\draw (C) edge[out=125, in= -35, ->, red] (A);
+\draw (A) edge[in=145, out= -55, ->, blue] (C);
+
+\node (otherstates) at (6,-3) {\Huge{$\ddots$}};
+
+\node (absorption) at (7.5,-4) [draw, ellipse] {$100$};
+
+\draw (otherstates) edge[out=45, in=100, ->, red] (absorption);
+\draw (otherstates) edge[out=-85, in=-100, ->, red] (absorption);
+\draw (otherstates) edge[out=-120, in=-90, ->, red] (absorption);
+\draw (otherstates) edge[out=80, in=40, ->, red] (absorption);
+
+
+\end{tikzpicture}
+\end{center}
+}
 
 \begin{frame}[fragile]{Some Code}
   \begin{verbatim}
@@ -74,49 +103,44 @@ for k in range(100):
         rolldie(k)
 
 for p, q in SaLdic.iteritems():
-    a[p, q] = 1 
+    a[p, q] = 1
   \end{verbatim}
 \end{frame}
 
 \begin{frame}{Transition Matrix}
-  \begin{figure}[!htbp]
     \begin{center}
       \includegraphics[scale=0.8]{images/matplot}
     \end{center}
-  \end{figure}
 \end{frame}
 
-\begin{frame}{Results}
-  \begin{figure}[!htbp]
-    \centering
-    \begin{subfigure}{.5\textwidth}
-      \centering
-      \includegraphics[width=\linewidth]{images/7plot}
-      \caption{7 rolls}
-    \end{subfigure}%
-    \begin{subfigure}{.5\textwidth}
-      \centering
-      \includegraphics[width=\linewidth]{images/15plot}
-      \caption{15 rolls.}
-    \end{subfigure}
-    \caption{The Probability Distributions after different numbers of rolls.}
-  \end{figure}
+\begin{frame}{Results - Where will you be after 7 or 15 rolls?}
+  \begin{columns}
+    \column{.5\textwidth}
+      \begin{center}
+      \includegraphics[width=\linewidth]{images/7plot}\\
+      7 rolls
+      \end{center}
+    \column{.5\textwidth}
+      \begin{center}
+      \includegraphics[width=\linewidth]{images/15plot}\\
+      15 rolls
+      \end{center}
+  \end{columns}
 \end{frame}
 
-\begin{frame}{Results}
-  \begin{figure}[!htbp]
-    \centering
-    \begin{subfigure}{.5\textwidth}
-      \includegraphics[width=\linewidth]{images/turns}
-      \caption{The Percentage of games that end ON turn $N$.}
-    \end{subfigure}%
-    \begin{subfigure}{.5\textwidth}
-      \centering
-      \includegraphics[width=\linewidth]{images/sumturns}
-      \caption{The Percentage of games that end BY turn $N$.}
-    \end{subfigure}
-    \caption{Behaviour compared to $N$ rolls.}
-  \end{figure}
+\begin{frame}{Results - How long is a game likely to last?}
+  \begin{columns}
+    \column{.5\textwidth}
+      \begin{center}
+      \includegraphics[width=\linewidth]{images/turns}\\
+      The Percentage of games that end ON turn $N$.
+      \end{center}
+    \column{.5\textwidth}
+      \begin{center}
+      \includegraphics[width=\linewidth]{images/sumturns}\\
+      The Percentage of games that end BY turn $N$.
+      \end{center}
+  \end{columns}
 \end{frame}
 
 \begin{frame}{Contact Me}
