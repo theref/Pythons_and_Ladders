@@ -6,3 +6,7 @@ sagetex.sty
 *.out
 *.sagetex.sage
 *synctex.gz
+*.nav
+*.snm
+*.toc
+*.urb
