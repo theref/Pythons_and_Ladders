@@ -4,4 +4,5 @@ sagetex.sty
 *.fdb_latexmk
 *.log
 *.out
-*.sagetex.gz
+*.sagetex.sage
+*synctex.gz
