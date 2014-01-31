@@ -4,6 +4,8 @@
 \usepackage{graphicx}
 \usepackage{subcaption}
 \usepackage{verbatim}
+\usepackage{tikz}
+\usetikzlibrary{ellipse}
 
 \setbeamertemplate{navigation symbols}{}
 
@@ -36,6 +38,18 @@
     \item Transition Matrix
   \end{itemize}
 \end{frame}
+
+\frame{\frametitle{The Approach}
+\begin{tikzpicture}
+\node (A) at (0,0) [draw, ellipse] {$1$};
+\node (B) at (0,2) [draw, ellipse] {$2$};
+\node (C) at (-1,1) [draw, ellipse] {$3$};
+
+\pause
+\draw (A) edge[out=45, in= 135, ->] (B);
+\draw (B) edge[out=-45, in= -135, ->] (A);
+\end{tikzpicture}
+}
 
 \begin{frame}[fragile]{Some Code}
   \begin{verbatim}
