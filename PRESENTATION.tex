@@ -1,11 +1,10 @@
-\documentclass[14pt]{beamer}
+\documentclass{beamer}
 
 \usepackage{booktabs}
 \usepackage{graphicx}
-\usepackage{subcaption}
 \usepackage{verbatim}
 \usepackage{tikz}
-\usetikzlibrary{ellipse}
+\usetikzlibrary{shapes, arrows}
 
 \setbeamertemplate{navigation symbols}{}
 
@@ -40,15 +39,34 @@
 \end{frame}
 
 \frame{\frametitle{The Approach}
+\begin{center}
 \begin{tikzpicture}
 \node (A) at (0,0) [draw, ellipse] {$1$};
-\node (B) at (0,2) [draw, ellipse] {$2$};
-\node (C) at (-1,1) [draw, ellipse] {$3$};
+\node (B) at (6,0) [draw, ellipse] {$2$};
+\node (C) at (3,-3) [draw, ellipse] {$3$};
 
 \pause
-\draw (A) edge[out=45, in= 135, ->] (B);
-\draw (B) edge[out=-45, in= -135, ->] (A);
+\draw (A) edge[out=-10, in= -170, ->, red] (B);
+\draw (B) edge[in=10, out= 170, ->, blue] (A);
+
+\draw (C) edge[out=35, in= -125, ->, red] (B);
+\draw (B) edge[in=55, out= -145, ->, blue] (C);
+
+\draw (C) edge[out=125, in= -35, ->, red] (A);
+\draw (A) edge[in=145, out= -55, ->, blue] (C);
+
+\node (otherstates) at (6,-3) {\Huge{$\ddots$}};
+
+\node (absorption) at (7.5,-4) [draw, ellipse] {$100$};
+
+\draw (otherstates) edge[out=45, in=100, ->, red] (absorption);
+\draw (otherstates) edge[out=-85, in=-100, ->, red] (absorption);
+\draw (otherstates) edge[out=-120, in=-90, ->, red] (absorption);
+\draw (otherstates) edge[out=80, in=40, ->, red] (absorption);
+
+
 \end{tikzpicture}
+\end{center}
 }
 
 \begin{frame}[fragile]{Some Code}
@@ -95,7 +113,7 @@ for p, q in SaLdic.iteritems():
     \end{center}
 \end{frame}
 
-\begin{frame}{Results - Where are will you be after 7 or 15 rolls?}
+\begin{frame}{Results - Where will you be after 7 or 15 rolls?}
   \begin{columns}
     \column{.5\textwidth}
       \begin{center}
