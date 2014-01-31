@@ -23,12 +23,9 @@
 \end{frame}
 
 \begin{frame}{The Game}
-  \begin{figure}[!htbp]
     \begin{center}
       \includegraphics[scale=2.2]{images/SALboard}
     \end{center}
-    \caption{The board that we will be studying.}
-  \end{figure}
 \end{frame}
 
 \begin{frame}{Modelling the Game}
@@ -74,49 +71,44 @@ for k in range(100):
         rolldie(k)
 
 for p, q in SaLdic.iteritems():
-    a[p, q] = 1 
+    a[p, q] = 1
   \end{verbatim}
 \end{frame}
 
 \begin{frame}{Transition Matrix}
-  \begin{figure}[!htbp]
     \begin{center}
       \includegraphics[scale=0.8]{images/matplot}
     \end{center}
-  \end{figure}
 \end{frame}
 
-\begin{frame}{Results}
-  \begin{figure}[!htbp]
-    \centering
-    \begin{subfigure}{.5\textwidth}
-      \centering
-      \includegraphics[width=\linewidth]{images/7plot}
-      \caption{7 rolls}
-    \end{subfigure}%
-    \begin{subfigure}{.5\textwidth}
-      \centering
-      \includegraphics[width=\linewidth]{images/15plot}
-      \caption{15 rolls.}
-    \end{subfigure}
-    \caption{The Probability Distributions after different numbers of rolls.}
-  \end{figure}
+\begin{frame}{Results - Where are will you be after 7 or 15 rolls?}
+  \begin{columns}
+    \column{.5\textwidth}
+      \begin{center}
+      \includegraphics[width=\linewidth]{images/7plot}\\
+      7 rolls
+      \end{center}
+    \column{.5\textwidth}
+      \begin{center}
+      \includegraphics[width=\linewidth]{images/15plot}\\
+      15 rolls
+      \end{center}
+  \end{columns}
 \end{frame}
 
-\begin{frame}{Results}
-  \begin{figure}[!htbp]
-    \centering
-    \begin{subfigure}{.5\textwidth}
-      \includegraphics[width=\linewidth]{images/turns}
-      \caption{The Percentage of games that end ON turn $N$.}
-    \end{subfigure}%
-    \begin{subfigure}{.5\textwidth}
-      \centering
-      \includegraphics[width=\linewidth]{images/sumturns}
-      \caption{The Percentage of games that end BY turn $N$.}
-    \end{subfigure}
-    \caption{Behaviour compared to $N$ rolls.}
-  \end{figure}
+\begin{frame}{Results - How long is a game likely to last?}
+  \begin{columns}
+    \column{.5\textwidth}
+      \begin{center}
+      \includegraphics[width=\linewidth]{images/turns}\\
+      The Percentage of games that end ON turn $N$.
+      \end{center}
+    \column{.5\textwidth}
+      \begin{center}
+      \includegraphics[width=\linewidth]{images/sumturns}\\
+      The Percentage of games that end BY turn $N$.
+      \end{center}
+  \end{columns}
 \end{frame}
 
 \begin{frame}{Contact Me}
