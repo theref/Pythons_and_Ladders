@@ -1,5 +1,9 @@
 # Snakes and Ladders with Python
 
-Code for a presentation by [James Campbell](https://github.com/theref) for [Django Weekend Cardiff](https://djangoweekend.org/).
+This repository contains code written by [James Campbell](http://www.jamescampbell.org.uk/) for the mathematical analysis of the game ‘Snakes and Ladders’ and also the presentation of that analysis at the [Django Weekend Cardiff](https://djangoweekend.org/).
 
-All the code was written in Python using [Sage](http://www.sagemath.org/). The pdf's were then created using [LaTex](http://www.latex-project.org/). For those who are unable to build .tex files, the final pdf's are included in the release.
+The analysis code (in the file 'pythons and ladders.sagews’) is written in Python using the [Sage](http://www.sagemath.org/) mathematical package. 
+
+The remaining files (.tex and .bib) use the [LaTex](http://www.latex-project.org/) typesetting package to define two output documents: ‘Presentation.pdf’ (the material presented at Django Weekend Cardiff) and ‘SALCoursework.pdf’ (coursework produced for my computing module)
+
+For those unable to build the .tex files, both pdf’s are included in the release (which you can find in the menu above).
